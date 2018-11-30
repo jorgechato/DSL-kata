@@ -1,16 +1,10 @@
-from dsl.html import HtmlElement
-from dsl.html import InputElement
+from dsl.base import Form
+from dsl.base import CharField
 
-print("Input label")
+print("Form")
 
 print("="*5)
 
 print(
-    InputElement(name="name")
-)
-
-print("-"*5)
-
-print(
-    InputElement(name="name", label="User name")
+    Form(CharField(name="user", size="140", label="User Name"), id="adidas-form")
 )
