@@ -25,5 +25,23 @@ class HtmlElement():
                 self.tag,
                 attribute_html,
                 children_html,
-                selt.tag
+                self.tag
             )
+
+
+class InputElement(HtmlElement):
+    tag = "input"
+
+    def __init__(self, *args, **kwargs):
+        HtmlElement.__init__(self, *args, **kwargs)
+        self.label = self.attributes[
+            "label"
+        ] if "label" in self.attributes else self.attributes["name"]
+
+        if "label" in self.attributes.items():
+            del self.attributes["label"]
+
+    def __str__(self):
+        label_html = "<label>{}<label/>\n".format(self.label)
+
+        return label_html + HtmlElement.__str__(self)
