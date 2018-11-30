@@ -3,20 +3,40 @@
 Python solution uses a different approach because the language lacks a block syntax and multi-line lambdas.
 Each of these objects is built inline using readable method names.
 
-This implementation overloads the operators `==`, `!=`, `>` and `<` for operations on the text and range fields.
+This implementation overloads the operators `__str__` for operations on the text and range fields.
 
 ```python
 print(
-	Form(CharField(name=”user”,size=”25”,label=”ID”), id=”myform”)
+    Form(
+        CharField(name="user", size="140", label="User Name"),
+        id="adidas-form",
+    )
 )
 
-# out
+print("-"*5)
 
-<form id='myform'>
-	<label>ID</label>
-	<input type='text' name='name' size='25'/>
-	<br/>
-</form>
+print(
+    Form(
+        CharField(name="user", size="140", label="User Name"),
+        PasswordField(label="Password"),
+        id="adidas-form",
+    )
+)
+```
+
+```html
+<form id='adidas-form'>
+<label>User Name<label/>
+<input name='user' size='140' label='User Name' type='text'/>
+<form/>
+-----
+<form id='adidas-form'>
+<label>User Name<label/>
+<input name='user' size='140' label='User Name' type='text'/>
+
+<label>Password<label/>
+<input label='Password' type='password'/>
+<form/>
 ```
 
 ## Run
