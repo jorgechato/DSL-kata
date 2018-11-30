@@ -1,4 +1,4 @@
-class HtmlElement():
+class Html:
     default_attributes = {}
     tag = "unknown_tag"
 
@@ -18,7 +18,9 @@ class HtmlElement():
             return "<{} {}/>".format(self.tag, attribute_html)
         else:
             children_html = "".join([
-                str(child) for child in self.children
+                "{}\n".format(
+                    str(child)
+                ) for child in self.children
             ])
 
             return "<{} {}>{}<{}/>".format(
@@ -29,11 +31,11 @@ class HtmlElement():
             )
 
 
-class InputElement(HtmlElement):
+class Input(Html):
     tag = "input"
 
     def __init__(self, *args, **kwargs):
-        HtmlElement.__init__(self, *args, **kwargs)
+        Html.__init__(self, *args, **kwargs)
         self.label = self.attributes[
             "label"
         ] if "label" in self.attributes else self.attributes["name"]
@@ -42,6 +44,6 @@ class InputElement(HtmlElement):
             del self.attributes["label"]
 
     def __str__(self):
-        label_html = "<label>{}<label/>\n".format(self.label)
+        label_html = "\n<label>{}<label/>\n".format(self.label)
 
-        return label_html + HtmlElement.__str__(self)
+        return label_html + Html.__str__(self)

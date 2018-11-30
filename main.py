@@ -1,16 +1,21 @@
-from dsl.html import HtmlElement
-from dsl.html import InputElement
+from dsl.base import Form
+from dsl.base import CharField
+from dsl.base import PasswordField
 
-print("Input label")
+print("Form")
 
 print("="*5)
 
 print(
-    InputElement(name="name")
+    Form(CharField(name="user", size="140", label="User Name"), id="adidas-form")
 )
 
 print("-"*5)
 
 print(
-    InputElement(name="name", label="User name")
+    Form(
+        CharField(name="user", size="140", label="User Name"),
+        PasswordField(label="Password"),
+        id="adidas-form",
+    )
 )

@@ -7,16 +7,33 @@ This implementation overloads the operators `==`, `!=`, `>` and `<` for operatio
 
 ```python
 print(
-	Form(CharField(name=”user”,size=”25”,label=”ID”), id=”myform”)
+    Form(CharField(name="user", size="140", label="User Name"), id="adidas-form")
+)
+
+print("-"*5)
+
+print(
+    Form(
+        CharField(name="user", size="140", label="User Name"),
+        PasswordField(label="Password"),
+        id="adidas-form",
+    )
 )
 
 # out
 
-<form id='myform'>
-	<label>ID</label>
-	<input type='text' name='name' size='25'/>
-	<br/>
-</form>
+<form id='adidas-form'>
+<label>User Name<label/>
+<input name='user' size='140' label='User Name' type='text'/>
+<form/>
+-----
+<form id='adidas-form'>
+<label>User Name<label/>
+<input name='user' size='140' label='User Name' type='text'/>
+
+<label>Password<label/>
+<input label='Password' type='password'/>
+<form/>
 ```
 
 ## Run
