@@ -3,19 +3,25 @@
 Python solution uses a different approach because the language lacks a block syntax and multi-line lambdas.
 Each of these objects is built inline using readable method names.
 
-This implementation overloads the operators `==`, `!=`, `>` and `<` for operations on the text and range fields.
+This implementation overloads the operators `__str__` for operations on the text and range fields.
 
 ```python
-print(
-	Form(CharField(name=”user”,size=”25”,label=”ID”), id=”myform”)
-)
+UserForm
+name:CharField -> label:Username size:140
+email:EmailField -> size:140
+password:PasswordField
+```
 
-# out
+```html
+<form id='userform'>
+<label>Username</label>
+<input type='text' name='name' size='25'/>
 
-<form id='myform'>
-	<label>ID</label>
-	<input type='text' name='name' size='25'/>
-	<br/>
+<label>email</label>
+<input type='text' name='email' size='32'/>
+
+<label>password</label>
+<input type='password' name='password'/>
 </form>
 ```
 
