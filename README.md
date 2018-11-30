@@ -1,16 +1,16 @@
 # DSL Kata
 
-<!-- Python solution uses a different approach because the language lacks a block syntax and multi-line lambdas. -->
-<!-- The search method expects a list of objects representing search criteria. -->
+Python solution uses a different approach because the language lacks a block syntax and multi-line lambdas.
 Each of these objects is built inline using readable method names.
-<!-- The search method is then able to iterate over the provided objects to build the search request. -->
 
-<!-- This implementation overloads the operators `==`, `!=`, `>` and `<` for operations on the text and range fields. -->
+This implementation overloads the operators `==`, `!=`, `>` and `<` for operations on the text and range fields.
 
 ```python
 print(
 	Form(CharField(name=”user”,size=”25”,label=”ID”), id=”myform”)
 )
+
+# out
 
 <form id='myform'>
 	<label>ID</label>
@@ -19,15 +19,21 @@ print(
 </form>
 ```
 
+## Run
+
+```bash
+$ python main.py
+```
+
 ## Strengths
 
-<!-- - Single step for creating the request and performing the search -->
+- Single step for creating the request
 - Easy to dynamically create criteria
 - Operator overloading improves readability
 
 ## Weaknesses
 
-<!-- - Repetition of the class name -->
+- Repetition of the class name
 - Literal list used as argument
 
 ## TL;DR

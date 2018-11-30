@@ -1,3 +1,4 @@
-#  from dsl import html
+from dsl.html import HtmlElement
 
-print("Yo!")
+print("Unknown tag")
+print(HtmlElement(id="yo"))
