@@ -1,4 +1,15 @@
-from dsl.html import HtmlElement
+from dsl.element import Input
 
-print("Unknown tag")
-print(HtmlElement(id="yo"))
+print("Input label")
+
+print("="*5)
+
+print(
+    Input(name="name")
+)
+
+print("-"*5)
+
+print(
+    Input(name="name", label="User name")
+)
